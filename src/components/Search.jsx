@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function Search({userInput}) { 
+function Search({userInput, citySearch}) { 
     const [isLoading, setIsLoding] = useState(true)
     const [text, setText] = useState('')
     const [userSearch, setUserSearch] = useState('')
@@ -28,17 +28,19 @@ function Search({userInput}) {
         }
     }
 
-    const handleCityClick = async (lat, long) => { 
-        console.log(lat, long)
-        const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current_weather=true`)
-        const resData = await response.json()
-        console.log(resData)
+    const getTotalWeatherData = async (lat, long) => { 
+        const [responseCurrent, responseDaily] = await Promise.all([
+            fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current_weather=true`),
+            fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&timezone=auto&daily=temperature_2m_max,temperature_2m_min,windspeed_10m_max`)
+        ])
+        const [currentData, dailyData] = await Promise.all([
+            responseCurrent.json(),
+            responseDaily.json()
+        ])
+        citySearch(currentData, dailyData)
     } 
 
-    // https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&timezone=auto&daily=temperature_2m_max,temperature_2m_min,windspeed_10m_max,current_weather=true
-
-    // Required data: 
-    // date, day, condition, temperature, wind speed
+    // Note that we don't actually need the search button
 
     return (
         <form>
@@ -48,7 +50,7 @@ function Search({userInput}) {
                 userSearch.results ?    
                     userSearch.results.map((item) => {
                         return (
-                            <div onClick={() => handleCityClick(item.latitude, item.longitude)} key={item.id}>
+                            <div onClick={() => getTotalWeatherData(item.latitude, item.longitude)} key={item.id}>
                                 <p>{item.name}, {item.country}</p>
                             </div>
                         )
