@@ -33,18 +33,21 @@ function App() {
 				currentWeather ? <p>{currentWeather.current_weather.temperature}</p> : null
 			}
 			{
-				dailyWeather ? 
-					dailyWeather.daily.temperature_2m_max.map((temp) => {
-						return (
-							// Pass the data to a component here
-							<div>
-								<p>{temp}</p>
-							</div>
-						)
-					})
-				:
-				null
-
+				// dailyWeather ? 
+				// 	dailyWeather.daily.temperature_2m_max.map((temp) => {
+				// 		return (
+				// 			// Pass the data to a component here
+				// 			<div>
+				// 				<p>{temp}</p>
+				// 			</div>
+				// 		)
+				// 	})
+				// :
+				// null
+				// dailyWeather ? 
+				// 	dailyWeather.daily
+				// :
+				// null
 			}
 		</>
 	)
