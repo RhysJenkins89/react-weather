@@ -30,12 +30,15 @@ function Search({userInput}) {
 
     const handleCityClick = async (lat, long) => { 
         console.log(lat, long)
-        const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m`)
+        const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current_weather=true`)
         const resData = await response.json()
         console.log(resData)
     } 
 
-    // On city click, grab the lat-long and pass into the lat-long search
+    // https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&timezone=auto&daily=temperature_2m_max,temperature_2m_min,windspeed_10m_max,current_weather=true
+
+    // Required data: 
+    // date, day, condition, temperature, wind speed
 
     return (
         <form>
