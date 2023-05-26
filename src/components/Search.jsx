@@ -17,17 +17,17 @@ function Search({userInput, citySearch}) {
         }
     } 
 
-    const handleButtonClick = (event) => {
-        if (!text) {
-            // show an alert or similar
-        } else {
-            event.preventDefault()
-            userInput(text)
-            setText('')
-        }
-    }
+    // const handleButtonClick = (event) => {
+    //     if (!text) {
+    //         // show an alert or similar
+    //     } else {
+    //         event.preventDefault()
+    //         userInput(text)
+    //         setText('')
+    //     }
+    // }
 
-    const getTotalWeatherData = async (lat, long) => { 
+    const getTotalWeatherData = async (lat, long, name) => { 
         const [responseCurrent, responseDaily] = await Promise.all([
             fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current_weather=true`),
             fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&timezone=auto&daily=temperature_2m_max,temperature_2m_min,windspeed_10m_max`)
@@ -37,19 +37,21 @@ function Search({userInput, citySearch}) {
             responseDaily.json()
         ])
         citySearch(currentData, dailyData)
+        userInput(name)
+        setText('')
+        setUserSearch('')
     } 
 
     // Note that we don't actually need the search button
 
     return (
-        <form>
+        <>
             <input value={text} onChange={handleChange} />
-            <button onClick={handleButtonClick}>Search</button>
             {
                 userSearch.results ?    
                     userSearch.results.map((item) => {
                         return (
-                            <div onClick={() => getTotalWeatherData(item.latitude, item.longitude)} key={item.id}>
+                            <div onClick={() => getTotalWeatherData(item.latitude, item.longitude, item.name)} key={item.id}>
                                 <p>{item.name}, {item.country}</p>
                             </div>
                         )
@@ -57,7 +59,7 @@ function Search({userInput, citySearch}) {
                 : 
                     null
             }
-        </form>
+        </>
     )
 }
 

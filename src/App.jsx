@@ -37,7 +37,7 @@ function App() {
 			<h1>Hello there.</h1>
 			<Search userInput={userHasSearched} citySearch={weatherData} />
 			{
-				searchTerm ? <p>{searchTerm}</p> : null
+				searchTerm ? <p>User search term: {searchTerm}</p> : null
 			}
 			{
 				currentWeather ? <p>{currentWeather.current_weather.temperature}</p> : null
