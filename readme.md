@@ -4,7 +4,7 @@ The classic weather app built with React.
 
 ## To do
 
-* Get the weather description from the weathercode 
+* Get weather icons
 * Design the card component
 
 ## Nice to have

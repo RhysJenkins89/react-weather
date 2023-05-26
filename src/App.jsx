@@ -48,7 +48,8 @@ function App() {
 						return (
 							<Card 
 								date={day.time} 
-								maxTemp={day.temperature_2m_max} 
+								maxTemp={day.temperature_2m_max}
+								minTemp={day.temperature_2m_min} 
 								windSpeed={day.windspeed_10m_max}
 								current={currentWeather.current_weather}
 							/>
