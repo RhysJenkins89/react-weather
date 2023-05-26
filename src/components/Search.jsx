@@ -10,7 +10,6 @@ function Search({userInput, citySearch}) {
         if (event.target.value.length >= 1) {
             const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${event.target.value}&count=10`)
             const resData = await response.json()
-            console.log(resData)
             setUserSearch(resData)
         } else {
             setText('')

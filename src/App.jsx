@@ -12,15 +12,22 @@ function App() {
 	}
 
 	const weatherData = (current, daily) => {
-		console.log('weather data function')
-		console.log({current, daily})
 		setCurrentWeather(current)
 		setDailyWeather(daily)
-		console.log({currentWeather})
 	}
 
-	// Required data: 
-    // date, day, condition, temperature, wind speed
+	let dailyWeatherData = []
+
+	if (dailyWeather) {
+		for (let i = 0; i < 7; i++) {
+			let eachDay = {}
+			for (const weatherData in dailyWeather.daily) {
+				const currentItem = dailyWeather.daily[weatherData][i]
+				eachDay[weatherData] = currentItem
+			}
+			dailyWeatherData.push(eachDay)
+		}
+	}
 
 	return (
 		<>
@@ -33,21 +40,12 @@ function App() {
 				currentWeather ? <p>{currentWeather.current_weather.temperature}</p> : null
 			}
 			{
-				// dailyWeather ? 
-				// 	dailyWeather.daily.temperature_2m_max.map((temp) => {
-				// 		return (
-				// 			// Pass the data to a component here
-				// 			<div>
-				// 				<p>{temp}</p>
-				// 			</div>
-				// 		)
-				// 	})
-				// :
-				// null
-				// dailyWeather ? 
-				// 	dailyWeather.daily
-				// :
-				// null
+				dailyWeatherData ?
+					dailyWeatherData.map((day) => {
+						return <p>Time: {day.time}</p>
+					})
+				:
+				null
 			}
 		</>
 	)
