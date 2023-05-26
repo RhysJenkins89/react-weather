@@ -1,5 +1,4 @@
 import wmoCodes from '../data/wmo-weather-codes'
-import days from '../data/days'
 
 function Card({date, maxTemp, minTemp, windSpeed, current}) {
     const averageTemp = (maxTemp + minTemp) / 2
