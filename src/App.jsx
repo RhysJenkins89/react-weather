@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Search from './components/Search'
+import Card from './components/Card'
 import './App.css'
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
 		}
 	}
 
+	console.log(dailyWeatherData)
+
 	return (
 		<>
 			<h1>Hello there.</h1>
@@ -42,7 +45,14 @@ function App() {
 			{
 				dailyWeatherData ?
 					dailyWeatherData.map((day) => {
-						return <p>Time: {day.time}</p>
+						return (
+							<Card 
+								date={day.time} 
+								maxTemp={day.temperature_2m_max} 
+								windSpeed={day.windspeed_10m_max}
+								current={currentWeather.current_weather}
+							/>
+						) 
 					})
 				:
 				null
