@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Search from './components/Search'
 import Card from './components/Card'
-import './App.scss'
 
 function App() {
 	const [searchTerm, setSearchTerm] = useState('')

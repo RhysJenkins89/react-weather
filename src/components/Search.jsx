@@ -17,17 +17,7 @@ function Search({userInput, citySearch}) {
         }
     } 
 
-    // const handleButtonClick = (event) => {
-    //     if (!text) {
-    //         // show an alert or similar
-    //     } else {
-    //         event.preventDefault()
-    //         userInput(text)
-    //         setText('')
-    //     }
-    // }
-
-    const getTotalWeatherData = async (lat, long, name) => { 
+    const getTotalWeatherData = async (lat, long, name, country) => { 
         const [responseCurrent, responseDaily] = await Promise.all([
             fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current_weather=true`),
             fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&timezone=auto&daily=temperature_2m_max,temperature_2m_min,windspeed_10m_max`)
@@ -41,8 +31,6 @@ function Search({userInput, citySearch}) {
         setText('')
         setUserSearch('')
     } 
-
-    // Note that we don't actually need the search button
 
     return (
         <>

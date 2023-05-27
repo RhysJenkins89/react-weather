@@ -1,10 +1,20 @@
-body {
-    margin: 0;
-    padding: 0;
-}
+@import './mixins.scss';
 
 .main-container {
-    background-color: red;
+    height: 100vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        @include heading-one;
+        width: fit-content;
+    }
+
+    input {
+        display: block;
+    }
 }
 
 .card {
