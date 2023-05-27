@@ -42,7 +42,7 @@ function Card({ date, maxTemp, minTemp, windSpeed, current }) {
             <h2>{dateText}</h2>
             {getWeathericon(current.weathercode, 50)}
             <h2>Description: {wmoCodes.hasOwnProperty(current.weathercode) ? wmoCodes[current.weathercode] : null}</h2>
-            <h2>Average temperature: {averageTemp.toFixed(0)}</h2>
+            <h2>Average temperature: {averageTemp.toFixed(0)} &deg;C</h2>
             <h2>Windspeed: {windSpeed.toFixed(0)} kph</h2>
         </div>
     )

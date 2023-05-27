@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Search from './components/Search'
 import Card from './components/Card'
-import './App.css'
+import './App.scss'
 
 function App() {
 	const [searchTerm, setSearchTerm] = useState('')
@@ -34,7 +34,7 @@ function App() {
 	// console.log(currentWeather)
 
 	return (
-		<>
+		<div className='main-container'>
 			<h1>Hello there.</h1>
 			<Search userInput={userHasSearched} citySearch={weatherData} />
 			{
@@ -56,7 +56,7 @@ function App() {
 				:
 				null
 			}
-		</>
+		</div>
 	)
 }
 
