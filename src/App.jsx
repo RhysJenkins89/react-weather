@@ -30,17 +30,14 @@ function App() {
 		}
 	}
 
-	console.log(dailyWeatherData)
+	// console.log(dailyWeatherData)
 
 	return (
 		<>
 			<h1>Hello there.</h1>
 			<Search userInput={userHasSearched} citySearch={weatherData} />
 			{
-				searchTerm ? <p>User search term: {searchTerm}</p> : null
-			}
-			{
-				currentWeather ? <p>{currentWeather.current_weather.temperature}</p> : null
+				searchTerm ? <p>Location: {searchTerm}</p> : null
 			}
 			{
 				dailyWeatherData ?
