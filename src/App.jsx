@@ -20,7 +20,7 @@ function App() {
 	let dailyWeatherData = []
 
 	if (dailyWeather) {
-		for (let i = 0; i < 7; i++) {
+		for (let i = 0; i < 5; i++) {
 			let eachDay = {}
 			for (const weatherData in dailyWeather.daily) {
 				const currentItem = dailyWeather.daily[weatherData][i]
@@ -31,6 +31,7 @@ function App() {
 	}
 
 	// console.log(dailyWeatherData)
+	// console.log(currentWeather)
 
 	return (
 		<>
