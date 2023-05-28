@@ -1,0 +1,12 @@
+.suggestion-container {
+    cursor: pointer;
+
+    .search-suggestion {
+        @include paragraph;
+        margin: 0 0 .75rem 0
+    }
+
+    &:first-of-type .search-suggestion {
+        margin-top: .75rem;
+    }
+}

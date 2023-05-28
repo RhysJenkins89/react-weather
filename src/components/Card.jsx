@@ -39,11 +39,11 @@ function Card({ date, maxTemp, minTemp, windSpeed, current }) {
 
     return (
         <div className="card">
-            <h2>{dateText}</h2>
+            <p>{dateText}</p>
             {getWeathericon(current.weathercode, 50)}
-            <h2>Description: {wmoCodes.hasOwnProperty(current.weathercode) ? wmoCodes[current.weathercode] : null}</h2>
-            <h2>Average temperature: {averageTemp.toFixed(0)} &deg;C</h2>
-            <h2>Windspeed: {windSpeed.toFixed(0)} kph</h2>
+            <p>Description: {wmoCodes.hasOwnProperty(current.weathercode) ? wmoCodes[current.weathercode] : null}</p>
+            <p>Average temperature: {averageTemp.toFixed(0)} &deg;C</p>
+            <p>Windspeed: {windSpeed.toFixed(0)} kph</p>
         </div>
     )
 }

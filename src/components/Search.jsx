@@ -35,18 +35,18 @@ function Search({userInput, citySearch}) {
     return (
         <>
             <input value={text} onChange={handleChange} placeholder='Search' />
-            {
-                userSearch.results ?    
-                    userSearch.results.map((item) => {
-                        return (
-                            <div onClick={() => getTotalWeatherData(item.latitude, item.longitude, item.name)} key={item.id}>
-                                <p>{item.name}, {item.country}</p>
-                            </div>
-                        )
-                    })
-                : 
-                    null
-            }
+                {
+                    userSearch.results ?    
+                        userSearch.results.map((item) => {
+                            return (
+                                <div className='suggestion-container' onClick={() => getTotalWeatherData(item.latitude, item.longitude, item.name)} key={item.id}>
+                                    <p className='search-suggestion'>{item.name}, {item.country}</p>
+                                </div>
+                            )
+                        })
+                    : 
+                        null
+                }
         </>
     )
 }

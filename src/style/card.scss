@@ -1,10 +1,13 @@
 .cards-container {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     width: 80%;
     margin: 0 auto;
 
     .card {
-        width: 20%;
+        height: 20rem;
+        width: 15rem;
         background-color: cadetblue;
         border-radius: 10px;
     }
