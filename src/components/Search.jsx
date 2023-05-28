@@ -34,7 +34,7 @@ function Search({userInput, citySearch}) {
 
     return (
         <>
-            <input value={text} onChange={handleChange} />
+            <input value={text} onChange={handleChange} placeholder='Search' />
             {
                 userSearch.results ?    
                     userSearch.results.map((item) => {
