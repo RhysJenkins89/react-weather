@@ -1,14 +1,44 @@
+@import './mixins.scss';
+
 .cards-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 
     .card {
+        display: flex;
+        flex-direction: column;
         height: 20rem;
-        width: 15rem;
-        background-color: cadetblue;
-        border-radius: 10px;
+        width: 12.5rem;
+        background-color: transparent;
+        border-radius: .5rem;
+        border: 1px solid whitesmoke;
+        padding: 1rem;
+        margin-bottom: .75rem;
+
+        h3 {
+            @include heading-three;
+            min-height: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .icon {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 1rem
+        }
+
+        p {
+            @include paragraph;
+            margin-bottom: .5rem;
+            font-size: 1.2rem;
+        }
+
+        .text-container {
+            display: block;
+            margin-top: auto;
+        }
     }
 }

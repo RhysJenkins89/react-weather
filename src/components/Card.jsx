@@ -21,17 +21,17 @@ function Card({ date, maxTemp, minTemp, windSpeed, current }) {
     const getWeathericon = (weatherCode, size) => {
         switch (weatherCode) {
             case 0: case 1:
-                return <BsSun size={size} />
+                return <BsSun className='icon' size={size} color='white' />
             case 2: case 3:
-                return <AiOutlineCloud size={size} /> 
+                return <AiOutlineCloud className='icon' size={size} color='white' /> 
             case 45: case 48:
-                return <BsCloudFog size={size} />   
+                return <BsCloudFog className='icon' size={size} color='white' />   
             case 51: case 53: case 55: case 56: case 57: case 61: case 63: case 65: case 66: case 67: case 80: case 81: case 82:      
-                return <BsCloudRain size={size} />
+                return <BsCloudRain className='icon' size={size} color='white' />
             case 71: case 73: case 75: case 77: case 85: case 86: 
-                return <BsCloudSnow size={size} />
+                return <BsCloudSnow className='icon' size={size} color='white' />
             case 95: case 96: case 99:
-                return <IoThunderstormOutline size={size} />      
+                return <IoThunderstormOutline className='icon' size={size} color='white' />      
             default: 
                 return <p>Default case</p>
         }
@@ -39,11 +39,13 @@ function Card({ date, maxTemp, minTemp, windSpeed, current }) {
 
     return (
         <div className="card">
-            <p>{dateText}</p>
-            {getWeathericon(current.weathercode, 50)}
-            <p>Description: {wmoCodes.hasOwnProperty(current.weathercode) ? wmoCodes[current.weathercode] : null}</p>
-            <p>Average temperature: {averageTemp.toFixed(0)} &deg;C</p>
-            <p>Windspeed: {windSpeed.toFixed(0)} kph</p>
+            <h3>{dateText}</h3>
+            {getWeathericon(current.weathercode, 75)}
+            <div className='text-container'>
+                <p>{wmoCodes.hasOwnProperty(current.weathercode) ? wmoCodes[current.weathercode] : null}</p>
+                <p>{averageTemp.toFixed(0)} &deg;C</p>
+                <p>Windspeed: {windSpeed.toFixed(0)} kph</p>
+            </div>
         </div>
     )
 }
