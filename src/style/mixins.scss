@@ -2,6 +2,10 @@
     font-size: 3rem;
     color: black;
     margin: 0 0 1rem 0;
+
+    @media (max-width: 500px) {
+        width: 90vw;
+    }
 }
 
 @mixin heading-two {

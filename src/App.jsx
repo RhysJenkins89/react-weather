@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Search from './components/Search'
 import Card from './components/Card'
+import Image from './components/Image'
 
 function App() {
 	const [searchTerm, setSearchTerm] = useState('')
@@ -35,6 +36,7 @@ function App() {
 
 	return (
 		<div className='main-container'>
+			<Image />
 			<h1>Reacting to the weather</h1>
 			<Search userInput={userHasSearched} citySearch={weatherData} />
 			{
