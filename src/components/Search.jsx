@@ -1,7 +1,7 @@
 import {useState} from 'react'
 
 function Search({userInput, citySearch}) { 
-    const [isLoading, setIsLoding] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     const [text, setText] = useState('')
     const [userSearch, setUserSearch] = useState('')
 

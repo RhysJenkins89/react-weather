@@ -5,8 +5,8 @@ The classic weather app built with React.
 ## To do
 
 * When the user types, clear any weather cards
-* Design the card component
 * Style everything else
+* Add a photo credit
 
 ## Nice to have
 

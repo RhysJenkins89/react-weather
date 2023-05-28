@@ -7,6 +7,7 @@ function App() {
 	const [searchTerm, setSearchTerm] = useState('')
 	const [currentWeather, setCurrentWeather] = useState(null)
 	const [dailyWeather, setDailyWeather] = useState(null)
+	// const [dailyWeatherData, setDailyWeatherData] = useState([])
 
 	const userHasSearched = (input) => {
 		setSearchTerm(input)
@@ -19,7 +20,7 @@ function App() {
 
 	let dailyWeatherData = []
 
-	// Organise the weather data into days
+	// Organising the weather data into days
 	if (dailyWeather) {
 		for (let i = 0; i < 5; i++) {
 			let eachDay = {}
@@ -28,8 +29,15 @@ function App() {
 				eachDay[weatherData] = currentItem
 			}
 			dailyWeatherData.push(eachDay)
+			// setDailyWeatherData((prevDays) => {prevDays, eachDay})
 		}
 	}
+
+	// const weatherReset = () => {
+	// 	console.log('weather reset func')
+	// 	setDailyWeatherData([])
+	// 	console.log(dailyWeatherData)
+	// } 
 
 	// console.log(dailyWeatherData)
 	// console.log(currentWeather)
@@ -38,7 +46,8 @@ function App() {
 		<div className='main-container'>
 			<Image />
 			<h1>Reacting to the weather</h1>
-			<Search userInput={userHasSearched} citySearch={weatherData} />
+			<Search userInput={userHasSearched} citySearch={weatherData} /> 
+			{/* reset={weatherReset} */}
 			{
 				searchTerm ? <h2>{searchTerm}</h2> : null
 			}
