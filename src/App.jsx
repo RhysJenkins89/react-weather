@@ -18,6 +18,7 @@ function App() {
 
 	let dailyWeatherData = []
 
+	// Organise the weather data into days
 	if (dailyWeather) {
 		for (let i = 0; i < 5; i++) {
 			let eachDay = {}
@@ -34,27 +35,30 @@ function App() {
 
 	return (
 		<div className='main-container'>
-			<h1>Hello there.</h1>
+			<h1>Reacting to the weather</h1>
 			<Search userInput={userHasSearched} citySearch={weatherData} />
 			{
-				searchTerm ? <p>Location: {searchTerm}</p> : null
+				searchTerm ? <h2>{searchTerm}</h2> : null
 			}
-			{
-				dailyWeatherData ?
-					dailyWeatherData.map((day) => {
-						return (
-							<Card 
-								date={day.time} 
-								maxTemp={day.temperature_2m_max}
-								minTemp={day.temperature_2m_min} 
-								windSpeed={day.windspeed_10m_max}
-								current={currentWeather.current_weather}
-							/>
-						) 
-					})
-				:
-				null
-			}
+			<div className='cards-container'>
+				{
+					dailyWeatherData ?
+						dailyWeatherData.map((day, index) => {
+							return (
+								<Card 
+									key={index} // Not best practice
+									date={day.time} 
+									maxTemp={day.temperature_2m_max}
+									minTemp={day.temperature_2m_min} 
+									windSpeed={day.windspeed_10m_max}
+									current={currentWeather.current_weather}
+								/>
+							) 
+						})
+					:
+					null
+				}
+			</div>
 		</div>
 	)
 }

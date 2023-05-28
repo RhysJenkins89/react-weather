@@ -1,0 +1,11 @@
+.cards-container {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+
+    .card {
+        width: 20%;
+        background-color: cadetblue;
+        border-radius: 10px;
+    }
+}
