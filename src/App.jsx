@@ -7,7 +7,7 @@ function App() {
 	const [searchTerm, setSearchTerm] = useState('')
 	const [currentWeather, setCurrentWeather] = useState(null)
 	const [dailyWeather, setDailyWeather] = useState(null)
-	// const [dailyWeatherData, setDailyWeatherData] = useState([])
+	const [showData, setShowData] = useState(false)
 
 	const userHasSearched = (input) => {
 		setSearchTerm(input)
@@ -29,31 +29,28 @@ function App() {
 				eachDay[weatherData] = currentItem
 			}
 			dailyWeatherData.push(eachDay)
-			// setDailyWeatherData((prevDays) => {prevDays, eachDay})
 		}
 	}
 
-	// const weatherReset = () => {
-	// 	console.log('weather reset func')
-	// 	setDailyWeatherData([])
-	// 	console.log(dailyWeatherData)
-	// } 
+	const weatherReset = (option) => setShowData(option)
 
-	// console.log(dailyWeatherData)
-	// console.log(currentWeather)
+	const styles = {
+		show: {
+			display: showData ? 'flex' : 'none'
+		}
+	} // This isn't the best solution, but it does the job for now.
 
 	return (
 		<div className='main-container'>
 			<Image />
 			<h1>Reacting to the weather</h1>
-			<Search userInput={userHasSearched} citySearch={weatherData} /> 
-			{/* reset={weatherReset} */}
+			<Search userInput={userHasSearched} citySearch={weatherData} reset={weatherReset} /> 
 			{
-				searchTerm ? <h2>{searchTerm}</h2> : null
+				searchTerm ? <h2 style={styles.show}>{searchTerm}</h2> : null
 			}
-			<div className='cards-container'>
+			<div style={styles.show} className='cards-container'>
 				{
-					dailyWeatherData ?
+					dailyWeatherData ? 
 						dailyWeatherData.map((day, index) => {
 							return (
 								<Card 

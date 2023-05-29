@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function Search({userInput, citySearch}) { 
+function Search({userInput, citySearch, reset}) { 
     const [isLoading, setIsLoading] = useState(true)
     const [text, setText] = useState('')
     const [userSearch, setUserSearch] = useState('')
@@ -11,6 +11,7 @@ function Search({userInput, citySearch}) {
             const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${event.target.value}&count=10`)
             const resData = await response.json()
             setUserSearch(resData)
+            reset(false)
         } else {
             setText('')
             setUserSearch('')
@@ -30,6 +31,7 @@ function Search({userInput, citySearch}) {
         userInput(name)
         setText('')
         setUserSearch('')
+        reset(true)
     } 
 
     return (
@@ -45,7 +47,7 @@ function Search({userInput, citySearch}) {
                             )
                         })
                     : 
-                        null
+                    null
                 }
         </>
     )
