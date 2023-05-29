@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // background-image: url('../../s
+    margin-inline: auto;
 
     h1 {
         @include heading-one;
