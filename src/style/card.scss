@@ -1,4 +1,5 @@
 @import './mixins.scss';
+@import './variables.scss';
 
 .cards-container {
     display: flex;
@@ -6,6 +7,20 @@
     flex-wrap: wrap;
     width: 90%;
     margin: 0 auto;
+
+    &::after { // This fixes the space-between issue on the second row
+        content: "";
+        width: 12.5rem;
+        padding: 1rem;
+
+        @media (max-width: $tablet) {
+            width: 10rem;
+        }
+
+        @media (max-width: $mobile-large) {
+            width: 65%;
+        }
+    }
 
     .card {
         display: flex;
@@ -16,7 +31,16 @@
         border-radius: .5rem;
         border: 1px solid whitesmoke;
         padding: 1rem;
-        margin-bottom: .75rem;
+        margin-bottom: 1rem;
+
+        @media (max-width: $tablet) {
+            width: 10rem;
+        }
+
+        @media (max-width: $mobile-large) {
+            width: 65%;
+            margin-inline: auto;
+        }
 
         h3 {
             @include heading-three;

@@ -1,4 +1,5 @@
 @import './mixins.scss';
+@import './variables.scss';
 
 .main-container {
     height: 100vh;
@@ -25,7 +26,7 @@
         border: 1px solid black;
         margin-bottom: 1rem;
 
-        @media (max-width: 500px) {
+        @media (max-width: $mobile-large) {
             width: calc(90vw - 1rem);
         }
     }

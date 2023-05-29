@@ -1,9 +1,11 @@
+@import './variables.scss';
+
 @mixin heading-one {
     font-size: 3rem;
     color: whitesmoke;
     margin: 0 0 1rem 0;
 
-    @media (max-width: 500px) {
+    @media (max-width: $tablet) {
         width: 90vw;
     }
 }
