@@ -8,9 +8,7 @@ This is a React app created with Vite, which makes it simple to clone and run lo
 
 ## To do
 
-* When the user types, clear any weather cards
-* Style everything else
-* Add a photo credit
+* Add photo credit
 
 ## Nice to have
 
