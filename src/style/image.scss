@@ -1,3 +1,5 @@
+@import './mixins.scss';
+
 .image {
     height: 100vh;
     width: 100vw;
@@ -16,4 +18,11 @@
     left: 0;
     z-index: -5;
     background-color: rgba(0, 0, 0, .75);
+}
+
+.credit-text {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    @include paragraph;
 }

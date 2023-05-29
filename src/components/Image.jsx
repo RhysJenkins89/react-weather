@@ -6,13 +6,19 @@ import paris from '/assets/paris-john-towner-unsplash.jpg'
 import hongKong from '/assets/hong-kong-chapman-chow-unsplash.jpg' 
 
 function Image() {
-    const [imageSrc, setImageSrc] = useState(null)
+    const [imageData, setImageData] = useState({})
 
     useEffect(() => {
         const getRandomImage = () => {
-            const images = [tokyo, london, santiago, paris, hongKong]
+            const images = [
+                {city: tokyo, credit: 'Jezael Melgoza'},
+                {city: london, credit: 'Anthony Delanoix'},
+                {city: santiago, credit: 'Juan Pablo Ahumada'},
+                {city: paris, credit: 'John Towner'},
+                {city: hongKong, credit: 'Chapman Chow'},
+            ]
             const randomNum = Math.floor(Math.random() * 5)
-            setImageSrc(images[randomNum])
+            setImageData(images[randomNum])
         }
 
         getRandomImage()
@@ -20,8 +26,9 @@ function Image() {
 
     return (
         <>
-            <img className='image' src={imageSrc} alt="City background image"/>
+            <img className='image' src={imageData.city} alt="City background image"/>
             <div className='overlay'></div>
+            <p className='credit-text'>Photo credit: {imageData.credit} at Unsplash</p>
         </>
     )
 }

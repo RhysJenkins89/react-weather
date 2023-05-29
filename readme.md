@@ -8,7 +8,7 @@ This is a React app created with Vite, which makes it simple to clone and run lo
 
 ## To do
 
-* Add photo credit
+* 
 
 ## Nice to have
 
