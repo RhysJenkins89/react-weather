@@ -1,4 +1,5 @@
 @import './mixins.scss';
+@import './variables.scss';
 
 .image {
     height: 100vh;
@@ -25,4 +26,8 @@
     bottom: 1.5rem;
     right: 1.5rem;
     @include paragraph;
+
+    @media (max-width: 1200px) {
+        display: none; // This isn't a good solution to the layout problem on mobile, but time is a factor
+    }
 }
