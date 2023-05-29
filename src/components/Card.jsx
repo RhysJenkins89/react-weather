@@ -33,7 +33,7 @@ function Card({ date, maxTemp, minTemp, windSpeed, current }) {
             case 95: case 96: case 99:
                 return <IoThunderstormOutline className='icon' size={size} color='white' />      
             default: 
-                return <p>Default case</p>
+                return <p>No data available</p>
         }
     }
 
